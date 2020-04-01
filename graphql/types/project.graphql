@@ -1,0 +1,16 @@
+type Project {
+    id: ID!
+    name: String!
+    description: String
+    slug: String!
+    status: ProjectStatus!
+    users: [User!] @belongsToMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+enum ProjectStatus {
+    ACTIVE @enum(value: 1)
+    INACTIVE @enum(value: 2)
+    ARCHIVED @enum(value: 3)
+}

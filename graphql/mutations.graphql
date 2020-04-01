@@ -1,0 +1,11 @@
+extend type Mutation {
+    login(data: LoginInput @spread): AuthPayload!
+    @field(resolver: "App\\GraphQL\\Mutations\\Authentication\\Login@resolve")
+    @loginValidation
+}
+
+extend type Mutation @middleware(checks: ["auth:api"]) {
+    createUser(data: CreateUserInput @spread): User
+    @create(model: "App\\Models\\User")
+    @createUserValidation
+}

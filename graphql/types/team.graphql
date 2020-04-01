@@ -1,0 +1,8 @@
+type Team {
+    id: ID!
+    name: String!
+    avatar: String!
+    users: [User!] @belongsToMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}

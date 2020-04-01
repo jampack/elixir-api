@@ -1,0 +1,5 @@
+type UserSetting {
+    tz: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}

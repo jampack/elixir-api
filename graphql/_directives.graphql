@@ -1,0 +1,9 @@
+"""
+Login input validation directive
+"""
+directive @loginValidation on FIELD_DEFINITION
+
+"""
+Create user input validation directive
+"""
+directive @createUserValidation on FIELD_DEFINITION

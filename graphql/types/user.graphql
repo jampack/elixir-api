@@ -1,0 +1,28 @@
+type User {
+    id: ID!
+    name: String!
+    email: Email!
+    avatar: String
+    role: UserRole!
+    teams: [Team!] @belongsToMany
+    projects: [Project!] @belongsToMany
+    setting: UserSetting @hasOne
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+enum UserRole {
+    ADMIN @enum(value: 1)
+    MANAGER @enum(value: 2)
+    DEVELOPER @enum(value: 3)
+}
+
+
+## Inputs
+
+input CreateUserInput {
+    name: String!
+    email: Email!
+    avatar: String
+    role: UserRole!
+}
