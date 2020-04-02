@@ -95,6 +95,7 @@ return [
         'directives' => [
             'App\\GraphQL\\Directives',
             'App\\GraphQL\\Directives\\Validation\\Authentication',
+            'App\\GraphQL\\Directives\\Validation\\Project',
             'App\\GraphQL\\Directives\\Validation\\User'
         ],
     ],

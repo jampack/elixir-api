@@ -25,7 +25,7 @@ class LoginValidationDirective extends ValidationDirective
     {
         return [
             'username' =>  ["required", "exists:users,email", "max:50"],
-            'password' => ["required", "min:5", "max:60"],
+            'password' => ["required", "min:5", "max:50"],
         ];
     }
 
@@ -40,7 +40,7 @@ class LoginValidationDirective extends ValidationDirective
             'username.max' => 'E-Mail too long.',
             'password.required' => 'Password is required.',
             'password.min' => "Password is incorrect.",
-            'password.max' => "Password is incorrect long."
+            'password.max' => "Password is too long."
         ];
     }
 

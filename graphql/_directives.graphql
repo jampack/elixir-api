@@ -7,3 +7,8 @@ directive @loginValidation on FIELD_DEFINITION
 Create user input validation directive
 """
 directive @createUserValidation on FIELD_DEFINITION
+
+"""
+Create project input validation directive
+"""
+directive @createProjectValidation on FIELD_DEFINITION

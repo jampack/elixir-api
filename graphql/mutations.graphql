@@ -1,11 +1,27 @@
+###
+#   Auth Mutations
+###
 extend type Mutation {
     login(data: LoginInput @spread): AuthPayload!
     @field(resolver: "App\\GraphQL\\Mutations\\Authentication\\Login@resolve")
     @loginValidation
 }
 
+###
+#   User Mutations
+###
 extend type Mutation @middleware(checks: ["auth:api"]) {
     createUser(data: CreateUserInput @spread): User
     @create(model: "App\\Models\\User")
     @createUserValidation
+}
+
+###
+#   Project Mutations
+###
+extend type Mutation @middleware(checks: ["auth:api"]) {
+    createProject(data: CreateProjectInput @spread): Project
+    @create(model: "App\\Models\\Project")
+    @inject(context: "user.id", name: "owner_id")
+    @createProjectValidation
 }
