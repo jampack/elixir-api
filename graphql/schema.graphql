@@ -13,6 +13,7 @@ scalar Email @scalar(class: "MLL\\GraphQLScalars\\Email")
 #import types/user.graphql
 #import types/team.graphql
 #import types/user_setting.graphql
+#import types/project_status.graphql
 #import types/project.graphql
 
 type Query

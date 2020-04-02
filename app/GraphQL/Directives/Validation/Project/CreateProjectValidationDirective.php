@@ -26,6 +26,7 @@ class CreateProjectValidationDirective extends ValidationDirective
         return [
             'name' =>  ["required", "unique:projects,name", "max:50"],
             'description' => ["max:500"],
+            'status_id' => ["required", "exists:project_statuses,id"]
         ];
     }
 
@@ -39,6 +40,8 @@ class CreateProjectValidationDirective extends ValidationDirective
             'name.unique' => 'There is already a project with this name.',
             'name.max' => 'Project name too long.',
             'description.max' => 'Description can not be longer then 500 characters.',
+            'status_id.required' => 'Project must have a status.',
+            'status_id.exists' => 'Invalid status.'
         ];
     }
 

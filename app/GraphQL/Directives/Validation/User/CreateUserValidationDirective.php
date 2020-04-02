@@ -26,7 +26,7 @@ class CreateUserValidationDirective extends ValidationDirective
         return [
             'name' =>  ["required", "max:30"],
             'email' => ["required", "unique:users,email", "max:30"],
-            'role' => ["required"]
+            'role' => ["required", "in:1,2,3"],
         ];
     }
 
@@ -42,6 +42,7 @@ class CreateUserValidationDirective extends ValidationDirective
             'email.unique' => 'E-mail is already registered.',
             'email.max' => "E-mail can't be longer then 30 characters.",
             'role.required' => "Role is required.",
+            'role.in' => "Invalid role.",
         ];
     }
 

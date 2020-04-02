@@ -18,11 +18,12 @@ class CreateProjectsTable extends Migration
             $table->string('name', 50);
             $table->string('description', 500)->nullable();
             $table->string('slug')->unique('projects_slug_index');
-            $table->integer('status')->default(1)->index('projects_status_index'); // 1: active, 2: inactive, 3: done/completed
             $table->unsignedBigInteger('owner_id');
+            $table->unsignedBigInteger('status_id');
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users');
+            $table->foreign('status_id')->references('id')->on('project_statuses');
         });
     }
 

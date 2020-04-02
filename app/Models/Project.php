@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Project extends Model
 {
@@ -13,22 +14,19 @@ class Project extends Model
     public $timestamps = "true";
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * Setup
      */
     protected $fillable = [
         "name",
         "owner_id",
-        "description"
+        "description",
+        "status_id"
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
+    ];
+
+    protected $casts = [
     ];
 
     /**
@@ -42,6 +40,11 @@ class Project extends Model
     public function owner() : BelongsTo
     {
         return $this->belongsTo(User::class, 'owner_id', 'id');
+    }
+
+    public function status() : BelongsTo
+    {
+        return $this->belongsTo(ProjectStatus::class, 'status_id', 'id');
     }
 
     /**

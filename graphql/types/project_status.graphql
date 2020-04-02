@@ -1,0 +1,8 @@
+type ProjectStatus {
+    id: ID!
+    name: String!
+    description: String
+    projects: [Project!] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}

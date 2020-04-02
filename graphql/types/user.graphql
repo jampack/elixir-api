@@ -12,7 +12,7 @@ type User {
 }
 
 enum UserRole {
-    ADMIN @enum(value: 1)
+    ADMINISTRATOR @enum(value: 1)
     MANAGER @enum(value: 2)
     DEVELOPER @enum(value: 3)
 }
