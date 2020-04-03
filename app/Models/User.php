@@ -22,7 +22,7 @@ class User extends Authenticatable
      * Setup
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'status'
     ];
 
     protected $hidden = [
@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function projects() : BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'project_users', 'user_id_id','project_id');
+        return $this->belongsToMany(User::class, 'project_users', 'user_id','project_id');
     }
 }

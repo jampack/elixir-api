@@ -10,7 +10,7 @@ extend type Query{
 ###
 extend type Query @middleware(checks: ["auth:api"]) {
     me: User! @auth
-    users: [User!]! @paginate(defaultCount: 10)
+    users(orderBy: _ @orderBy(columnsEnum: "UserOrderByEnum")): [User!]! @paginate(defaultCount: 10, maxCount: 15)
     user(id: ID @eq): User @find
 }
 
@@ -19,4 +19,5 @@ extend type Query @middleware(checks: ["auth:api"]) {
 ###
 extend type Query @middleware(checks: ["auth:api"]) {
     projectStatuses: [ProjectStatus]! @all
+    projects(orderBy: _ @orderBy(columnsEnum: "ProjectOrderByEnum")): [Project!] @paginate(defaultCount: 10, maxCount: 15)
 }

@@ -2,7 +2,7 @@ type Team {
     id: ID!
     name: String!
     avatar: String!
-    users: [User!] @belongsToMany
+    users: [User!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     created_at: DateTime!
     updated_at: DateTime!
 }

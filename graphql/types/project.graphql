@@ -5,7 +5,7 @@ type Project {
     slug: String!
     status: ProjectStatus! @belongsTo
     owner: User! @belongsTo
-    users: [User!] @belongsToMany
+    users: [User!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -15,4 +15,12 @@ input CreateProjectInput {
     name: String!
     description: String
     status_id: ID!
+}
+
+enum ProjectOrderByEnum {
+    # Another reason why you might want to have a custom enum is to
+    # correct typos or bad naming in column names.
+    NAME @enum(value: "name")
+    STATUS @enum(value: "status_id")
+    UPDATED_AT @enum(value: "updated_at")
 }
