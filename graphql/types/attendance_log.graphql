@@ -1,0 +1,15 @@
+type AttendanceLog {
+    id: ID!
+    user: User!
+    date: Date!
+    attendance: Attendance!
+    entry_time: DateTime
+    exit_time: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+enum Attendance {
+    ABSENT @enum(value: 0)
+    PRESENT @enum(value: 1)
+}

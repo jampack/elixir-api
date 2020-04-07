@@ -7,6 +7,8 @@ type User {
     teams: [Team!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     projects: [Project!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     setting: UserSetting @hasOne
+    attendanceScheme: AttendanceScheme @belongsTo
+    attendance: [AttendanceLog] @hasMany(type: "paginator", relation: "attendanceLogs", defaultCount: 30, maxCount: 360)
     status: UserStatus!
     created_at: DateTime!
     updated_at: DateTime!

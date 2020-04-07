@@ -1,0 +1,11 @@
+type AttendanceScheme {
+    id: ID!
+    users: [User]
+    name: String!
+    casual_leaves: Int
+    sick_leaves: Int
+    planned_leaves: Int
+    work_from_from: Int
+    created_at: DateTime!
+    updated_at: DateTime!
+}

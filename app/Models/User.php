@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -47,5 +48,15 @@ class User extends Authenticatable
     public function projects() : BelongsToMany
     {
         return $this->belongsToMany(User::class, 'project_users', 'user_id','project_id');
+    }
+
+    public function attendanceScheme() : BelongsTo
+    {
+        return $this->belongsTo(AttendanceScheme::class, 'attendance_scheme_id', 'id');
+    }
+
+    public function attendanceLogs() : HasMany
+    {
+        return $this->hasMany(AttendanceLog::class, 'user_id', 'id');
     }
 }
