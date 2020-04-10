@@ -19,7 +19,7 @@ class CreateAttendanceSchemesTable extends Migration
             $table->integer('casual_leaves')->nullable();
             $table->integer('sick_leaves')->nullable();
             $table->integer('planned_leaves')->nullable();
-            $table->integer('work_from_from')->nullable();
+            $table->integer('work_from_home')->nullable();
             $table->timestamps();
         });
     }

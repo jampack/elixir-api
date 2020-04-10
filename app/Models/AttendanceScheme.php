@@ -14,7 +14,7 @@ class AttendanceScheme extends Model
     /**
      * Setup
      */
-    protected $fillable = [];
+    protected $fillable = ["name", "casual_leaves", "planned_leaves", "sick_leaves", "work_from_home"];
 
     protected $hidden = [];
 

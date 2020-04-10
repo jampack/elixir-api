@@ -1,5 +1,7 @@
 <?php
 
+use Nuwave\Lighthouse\Support\Http\Middleware\AcceptJson;
+
 return [
 
     /*
@@ -96,7 +98,8 @@ return [
             'App\\GraphQL\\Directives',
             'App\\GraphQL\\Directives\\Validation\\Authentication',
             'App\\GraphQL\\Directives\\Validation\\Project',
-            'App\\GraphQL\\Directives\\Validation\\User'
+            'App\\GraphQL\\Directives\\Validation\\User',
+            'App\\GraphQL\\Directives\\Validation\\Settings\\AttendanceScheme',
         ],
     ],
 

@@ -21,3 +21,10 @@ extend type Query @middleware(checks: ["auth:api"]) {
     projectStatuses: [ProjectStatus]! @all
     projects(orderBy: _ @orderBy(columnsEnum: "ProjectOrderByEnum")): [Project!] @paginate(defaultCount: 10, maxCount: 15)
 }
+
+###
+#   Settings Queries
+###
+extend type Query @middleware(checks: ["auth:api"]) {
+    attendanceSchemes: [AttendanceScheme]! @paginate(defaultCount: 10, maxCount: 15)
+}

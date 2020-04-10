@@ -25,3 +25,13 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
     @inject(context: "user.id", name: "owner_id")
     @createProjectValidation
 }
+
+###
+#   Settings Mutations
+###
+extend type Mutation @middleware(checks: ["auth:api"]) {
+    createAttendanceScheme(data: CreateAttendanceSchemeInput @spread): AttendanceScheme
+    @create(model: "App\\Models\\AttendanceScheme")
+    @inject(context: "user.id", name: "owner_id")
+    @createAttendanceSchemeValidation
+}
