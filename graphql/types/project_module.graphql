@@ -1,0 +1,14 @@
+type ProjectModule{
+    id: ID!
+    name: String!
+    project: Project! @belongsTo
+    description: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreateProjectModuleInput{
+    project_id: ID!
+    name: String!
+    description: String
+}

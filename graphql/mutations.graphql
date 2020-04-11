@@ -24,6 +24,10 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
     @create(model: "App\\Models\\Project")
     @inject(context: "user.id", name: "owner_id")
     @createProjectValidation
+
+    createProjectModule(data: CreateProjectModuleInput @spread): ProjectModule
+    @create(model: "App\\Models\\ProjectModule")
+    @createProjectModuleValidation
 }
 
 ###

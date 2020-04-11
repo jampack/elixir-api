@@ -17,3 +17,8 @@ directive @createProjectValidation on FIELD_DEFINITION
 Create attendance scheme input validation directive
 """
 directive @createAttendanceSchemeValidation on FIELD_DEFINITION
+
+"""
+Create attendance scheme input validation directive
+"""
+directive @createProjectModuleValidation on FIELD_DEFINITION

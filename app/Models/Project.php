@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Project extends Model
@@ -45,6 +46,11 @@ class Project extends Model
     public function status() : BelongsTo
     {
         return $this->belongsTo(ProjectStatus::class, 'status_id', 'id');
+    }
+
+    public function modules() : HasMany
+    {
+        return $this->hasMany(ProjectModule::class, 'project_id', 'id');
     }
 
     /**
