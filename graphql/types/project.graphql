@@ -6,7 +6,8 @@ type Project {
     status: ProjectStatus! @belongsTo
     owner: User! @belongsTo
     users: [User!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
-    modules: [ProjectModule!] @hasMany
+    modules: [ProjectModule!] @hasMany(type: "paginator", relation: "modules", defaultCount: 10, maxCount: 15)
+    boards: [Board!]! @hasMany(type: "paginator", relation: "boards", defaultCount: 10, maxCount: 15)
     created_at: DateTime!
     updated_at: DateTime!
 }

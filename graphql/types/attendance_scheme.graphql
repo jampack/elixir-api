@@ -1,6 +1,6 @@
 type AttendanceScheme {
     id: ID!
-    users: [User] @hasMany(type: "paginator", defaultCount: 10, maxCount: 15)
+    users: [User] @hasMany(type: "paginator", relation: "users", defaultCount: 10, maxCount: 15)
     name: String!
     casual_leaves: Int
     sick_leaves: Int

@@ -53,6 +53,11 @@ class Project extends Model
         return $this->hasMany(ProjectModule::class, 'project_id', 'id');
     }
 
+    public function boards() : HasMany
+    {
+        return $this->hasMany( Board::class, 'project_id', 'id');
+    }
+
     /**
      * Accessors
      */

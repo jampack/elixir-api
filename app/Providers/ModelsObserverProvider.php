@@ -11,7 +11,7 @@ use Illuminate\Support\ServiceProvider;
 class ModelsObserverProvider extends ServiceProvider
 {
     /**
-     * Register services.
+     * Register Services.
      *
      * @return void
      */
@@ -21,7 +21,7 @@ class ModelsObserverProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap services.
+     * Bootstrap Services.
      *
      * @return void
      */

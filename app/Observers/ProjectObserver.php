@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Project;
+use App\Services\Actions\BoardActions;
 use Illuminate\Support\Str;
 
 class ProjectObserver
@@ -14,7 +15,8 @@ class ProjectObserver
 
     public function created(Project $project)
     {
-        //
+        $boardAction = new BoardActions();
+        $boardAction->createBoard($project);
     }
 
     public function updating(Project $project)

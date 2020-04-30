@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Services\Actions;
 use App\Models\Board;
 use App\Models\Project;
 
@@ -10,9 +11,9 @@ class BoardActions
         $board = new Board();
 
         $board->name = "Master Board";
-        $board->deletable = false;
+        $board->master_board = true;
 
-        $project->board()->save($board);
+        $project->boards()->save($board);
     }
 
 }

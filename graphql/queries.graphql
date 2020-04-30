@@ -19,6 +19,7 @@ extend type Query @middleware(checks: ["auth:api"]) {
 ###
 extend type Query @middleware(checks: ["auth:api"]) {
     projectStatuses: [ProjectStatus]! @all
+    project(id: ID @eq): Project @find
     projects(orderBy: _ @orderBy(columnsEnum: "ProjectOrderByEnum")): [Project!] @paginate(defaultCount: 10, maxCount: 15)
 }
 

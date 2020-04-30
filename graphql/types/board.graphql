@@ -1,0 +1,5 @@
+type Board {
+    id: ID!
+    name: String!
+    master_board: Boolean!
+}
