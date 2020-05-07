@@ -41,6 +41,7 @@ this will reset database and can be executed after making changes in migration/s
 
 - __To start development server execute `php artisan server`__
 - __GraphQL IDE can be browsed on http://localhost:8000/graphql-playground__
+- __There is a built in log viewer that can be browsed on http://localhost:8000/logs when in development mode__
 
 #### Automagically fix weird problems
 1) `composer dump-autoload`

@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Board extends Model
+class BoardColumn extends Model
 {
-    protected $table = "boards";
+    protected $table = "board_columns";
     protected $primaryKey = "id";
     public $timestamps = "true";
 
@@ -28,14 +27,9 @@ class Board extends Model
     /**
      * Relationships
      */
-    public function project() : BelongsTo
+    public function board() : BelongsTo
     {
-        return $this->belongsTo(Project::class, 'project_id', 'id');
-    }
-
-    public function columns(): HasMany
-    {
-        return $this->hasMany(BoardColumn::class, 'board_id', 'id');
+        return $this->belongsTo(Board::class, 'board_id', 'id');
     }
 
     /**
