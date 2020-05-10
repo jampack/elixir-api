@@ -4,6 +4,7 @@ type User {
     email: Email!
     avatar: String
     role: UserRole!
+    cards: [Card!] @hasMany(type: "paginator", relation: "cards", defaultCount: 15, maxCount: 50)
     teams: [Team!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     projects: [Project!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     setting: UserSetting @hasOne

@@ -29,8 +29,7 @@ class ProjectModule extends Model
     /**
      * Relationships
      */
-    public function project() : BelongsTo
-    {
+    public function project() : BelongsTo{
         return $this->belongsTo(Project::class,'project_id', 'id');
     }
 

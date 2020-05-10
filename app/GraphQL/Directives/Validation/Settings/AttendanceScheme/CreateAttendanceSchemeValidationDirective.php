@@ -25,10 +25,10 @@ class CreateAttendanceSchemeValidationDirective extends ValidationDirective
     {
         return [
             'name' =>  ["required", "max:50"],
-            'sick_leaves' => ["numeric", "min:0", "not_in:0"],
-            'casual_leaves' => ["numeric", "min:0", "not_in:0"],
-            'planned_leaves' => ["numeric", "min:0", "not_in:0"],
-            'work_from_home' => ["numeric", "min:0", "not_in:0"]
+            'sick_leaves' => ["nullable", "numeric", "min:0", "not_in:0"],
+            'casual_leaves' => ["nullable", "numeric", "min:0", "not_in:0"],
+            'planned_leaves' => ["nullable", "numeric", "min:0", "not_in:0"],
+            'work_from_home' => ["nullable", "numeric", "min:0", "not_in:0"]
         ];
     }
 

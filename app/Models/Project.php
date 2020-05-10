@@ -33,28 +33,23 @@ class Project extends Model
     /**
      * Relationships
      */
-    public function users() : BelongsToMany
-    {
+    public function users() : BelongsToMany {
         return $this->belongsToMany(User::class, 'project_users', 'project_id','user_id');
     }
 
-    public function owner() : BelongsTo
-    {
+    public function owner() : BelongsTo {
         return $this->belongsTo(User::class, 'owner_id', 'id');
     }
 
-    public function status() : BelongsTo
-    {
+    public function status() : BelongsTo {
         return $this->belongsTo(ProjectStatus::class, 'status_id', 'id');
     }
 
-    public function modules() : HasMany
-    {
+    public function modules() : HasMany {
         return $this->hasMany(ProjectModule::class, 'project_id', 'id');
     }
 
-    public function boards() : HasMany
-    {
+    public function boards() : HasMany {
         return $this->hasMany( Board::class, 'project_id', 'id');
     }
 
@@ -66,8 +61,7 @@ class Project extends Model
     /**
      * Mutators
      */
-    public function setSlugAttribute($value)
-    {
+    public function setSlugAttribute($value) {
         $this->attributes['slug'] = strtolower($value);
     }
 

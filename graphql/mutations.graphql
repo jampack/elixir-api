@@ -36,6 +36,16 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
 extend type Mutation @middleware(checks: ["auth:api"]) {
     createAttendanceScheme(data: CreateAttendanceSchemeInput @spread): AttendanceScheme
     @create(model: "App\\Models\\AttendanceScheme")
-    @inject(context: "user.id", name: "owner_id")
     @createAttendanceSchemeValidation
 }
+
+###
+#   Cards Mutations
+###
+extend type Mutation @middleware(checks: ["auth:api"]) {
+    createCard(data: CreateCardInput @spread): Card
+    @create(model: "App\\Models\\Card")
+    @inject(context: "user.id", name: "user_id")
+    @createCardValidation
+}
+

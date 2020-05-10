@@ -26,16 +26,14 @@ class ProjectStatus extends Model
     /**
      * Relationships
      */
-    public function projects(): HasMany
-    {
+    public function projects(): HasMany{
         return $this->hasMany(Project::class, 'status_id', 'id');
     }
 
     /**
      * Accessors
      */
-    public function getNameAttribute($value)
-    {
+    public function getNameAttribute($value){
         return ucfirst($value);
     }
 

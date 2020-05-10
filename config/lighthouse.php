@@ -100,6 +100,7 @@ return [
             'App\\GraphQL\\Directives\\Validation\\Project',
             'App\\GraphQL\\Directives\\Validation\\User',
             'App\\GraphQL\\Directives\\Validation\\Settings\\AttendanceScheme',
+            'App\\GraphQL\\Directives\\Validation\\Card',
         ],
     ],
 

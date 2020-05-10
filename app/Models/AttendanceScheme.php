@@ -24,8 +24,7 @@ class AttendanceScheme extends Model
      * Relationships
      */
 
-    public function users() : HasMany
-    {
+    public function users() : HasMany {
         return $this->hasMany(User::class,'attendance_scheme_id','id');
     }
 

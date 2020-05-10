@@ -45,19 +45,20 @@ class User extends Authenticatable
         return $this->hasOne(UserSetting::class, 'user_id','id');
     }
 
-    public function projects() : BelongsToMany
-    {
+    public function projects() : BelongsToMany {
         return $this->belongsToMany(User::class, 'project_users', 'user_id','project_id');
     }
 
-    public function attendanceScheme() : BelongsTo
-    {
+    public function attendanceScheme() : BelongsTo {
         return $this->belongsTo(AttendanceScheme::class, 'attendance_scheme_id', 'id');
     }
 
-    public function attendanceLogs() : HasMany
-    {
+    public function attendanceLogs() : HasMany {
         return $this->hasMany(AttendanceLog::class, 'user_id', 'id');
+    }
+
+    public function cards() : HasMany {
+        return $this->hasMany(Card::class, 'user_id', 'id');
     }
 
     /**

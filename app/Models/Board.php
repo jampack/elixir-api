@@ -28,18 +28,15 @@ class Board extends Model
     /**
      * Relationships
      */
-    public function project() : BelongsTo
-    {
+    public function project() : BelongsTo {
         return $this->belongsTo(Project::class, 'project_id', 'id');
     }
 
-    public function columns(): HasMany
-    {
+    public function columns() : HasMany {
         return $this->hasMany(BoardColumn::class, 'board_id', 'id');
     }
 
-    public function cards(): HasMany
-    {
+    public function cards() : HasMany {
         return $this->hasMany(Card::class, 'board_id', 'id');
     }
 
@@ -54,8 +51,7 @@ class Board extends Model
     /**
      * Scopes
      */
-    public function scopeMasterBoard($query)
-    {
+    public function scopeMasterBoard($query) {
         return $query->where('master_board', true);
     }
 }

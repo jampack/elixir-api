@@ -2,6 +2,14 @@ type Card {
     id: ID!
     title: String!
     description: String
+    user: User! @belongsTo
     board: Board @belongsTo
     column: BoardColumn @belongsTo
+}
+
+input CreateCardInput {
+    title: String!
+    description: String!
+    board_id: ID!
+    board_column_id: ID!
 }
