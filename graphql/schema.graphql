@@ -19,6 +19,8 @@ scalar Email @scalar(class: "MLL\\GraphQLScalars\\Email")
 #import types/attendance_scheme.graphql
 #import types/attendance_log.graphql
 #import types/board.graphql
+#import types/board_column.graphql
+#import types/card.graphql
 
 type Query
 

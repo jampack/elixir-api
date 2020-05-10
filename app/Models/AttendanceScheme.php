@@ -28,4 +28,16 @@ class AttendanceScheme extends Model
     {
         return $this->hasMany(User::class,'attendance_scheme_id','id');
     }
+
+    /**
+     * Accessors
+     */
+
+    /**
+     * Mutators
+     */
+
+    /**
+     * Scopes
+     */
 }

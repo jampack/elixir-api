@@ -1,0 +1,7 @@
+type Card {
+    id: ID!
+    title: String!
+    description: String
+    board: Board @belongsTo
+    column: BoardColumn @belongsTo
+}

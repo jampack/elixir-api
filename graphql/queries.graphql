@@ -11,7 +11,7 @@ extend type Query{
 extend type Query @middleware(checks: ["auth:api"]) {
     me: User! @auth
     users(orderBy: _ @orderBy(columnsEnum: "UserOrderByEnum")): [User!]! @paginate(defaultCount: 10, maxCount: 15)
-    user(id: ID @eq): User @find
+    user(id: ID! @eq): User @find
 }
 
 ###
@@ -19,7 +19,8 @@ extend type Query @middleware(checks: ["auth:api"]) {
 ###
 extend type Query @middleware(checks: ["auth:api"]) {
     projectStatuses: [ProjectStatus]! @all
-    project(id: ID @eq): Project @find
+    project(id: ID! @eq): Project @find
+    projectBySlug(slug: String! @eq): Project @find
     projects(orderBy: _ @orderBy(columnsEnum: "ProjectOrderByEnum")): [Project!] @paginate(defaultCount: 10, maxCount: 15)
 }
 
@@ -28,4 +29,12 @@ extend type Query @middleware(checks: ["auth:api"]) {
 ###
 extend type Query @middleware(checks: ["auth:api"]) {
     attendanceSchemes: [AttendanceScheme]! @paginate(defaultCount: 10, maxCount: 15)
+}
+
+###
+#   Boards Queries
+###
+extend type Query @middleware(checks: ["auth:api"]) {
+    board(id: ID! @eq): Board @find
+    projectMasterBoard(id: ID! @where(key: "project_id" operator: "=") @scope(name: "masterBoard")): Board @first
 }

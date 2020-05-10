@@ -70,4 +70,8 @@ class Project extends Model
     {
         $this->attributes['slug'] = strtolower($value);
     }
+
+    /**
+     * Scopes
+     */
 }

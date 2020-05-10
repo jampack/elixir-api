@@ -38,4 +38,12 @@ class ProjectStatus extends Model
     {
         return ucfirst($value);
     }
+
+    /**
+     * Mutators
+     */
+
+    /**
+     * Scopes
+     */
 }

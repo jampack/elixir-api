@@ -33,4 +33,16 @@ class ProjectModule extends Model
     {
         return $this->belongsTo(Project::class,'project_id', 'id');
     }
+
+    /**
+     * Accessors
+     */
+
+    /**
+     * Mutators
+     */
+
+    /**
+     * Scopes
+     */
 }

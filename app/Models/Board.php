@@ -38,12 +38,24 @@ class Board extends Model
         return $this->hasMany(BoardColumn::class, 'board_id', 'id');
     }
 
+    public function cards(): HasMany
+    {
+        return $this->hasMany(Card::class, 'board_id', 'id');
+    }
+
     /**
      * Accessors
      */
 
-
     /**
      * Mutators
      */
+
+    /**
+     * Scopes
+     */
+    public function scopeMasterBoard($query)
+    {
+        return $query->where('master_board', true);
+    }
 }

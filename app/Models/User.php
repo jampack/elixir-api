@@ -59,4 +59,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(AttendanceLog::class, 'user_id', 'id');
     }
+
+    /**
+     * Accessors
+     */
+
+    /**
+     * Mutators
+     */
+
+    /**
+     * Scopes
+     */
 }
