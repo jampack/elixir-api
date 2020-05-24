@@ -18,9 +18,11 @@ class Card extends Model
     protected $fillable = [
         'title',
         'description',
+        'type',
+        'task_type_id',
         'board_id',
         'board_column_id',
-        'task_type_id'
+        'owner_id'
     ];
 
     protected $hidden = [

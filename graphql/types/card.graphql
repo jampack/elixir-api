@@ -3,7 +3,7 @@ type Card {
     title: String!
     description: String
     type: CardTypeEnum!
-    task_type: CardTaskType! @hasOne
+    task_type: CardTaskType @hasOne(relation: "taskType")
     owner: User! @belongsTo
     board: Board @belongsTo
     column: BoardColumn @belongsTo
@@ -19,7 +19,7 @@ input CreateCardInput {
     title: String!
     description: String!
     type: CardTypeEnum!
+    task_type_id: ID
     board_id: ID!
     board_column_id: ID!
-    task_type_id: ID!
 }

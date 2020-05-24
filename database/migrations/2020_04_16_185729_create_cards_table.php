@@ -18,7 +18,7 @@ class CreateCardsTable extends Migration
             $table->unsignedBigInteger('owner_id');
             $table->unsignedBigInteger('board_id');
             $table->unsignedBigInteger('board_column_id');
-            $table->unsignedInteger('task_type_id');
+            $table->unsignedInteger('task_type_id')->nullable();
             $table->string('title', 150);
             $table->string('description', 10000)->nullable();
             $table->unsignedInteger('type'); // 1: task, 2: epic, 3: story
