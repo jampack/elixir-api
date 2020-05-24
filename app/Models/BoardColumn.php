@@ -16,7 +16,7 @@ class BoardColumn extends Model
      * Setup
      */
     protected $fillable = [
-        "name",
+        "name", "is_primary", "order"
     ];
 
     protected $hidden = [

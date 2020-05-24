@@ -1,7 +1,7 @@
 ###
 #   Auth Queries
 ###
-extend type Query{
+extend type Query {
     authCheck: Boolean! @field(resolver: "App\\GraphQL\\Queries\\Auth\\AuthCheck@resolve")
 }
 
@@ -37,4 +37,11 @@ extend type Query @middleware(checks: ["auth:api"]) {
 extend type Query @middleware(checks: ["auth:api"]) {
     board(id: ID! @eq): Board @find
     projectMasterBoard(id: ID! @where(key: "project_id" operator: "=") @scope(name: "masterBoard")): Board @first
+}
+
+###
+#   Cards Queries
+###
+extend type Query @middleware(checks: ["auth:api"]) {
+    cardTaskTypes(board_id: ID! @eq): [CardTaskType!]! @all
 }

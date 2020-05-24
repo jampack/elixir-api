@@ -17,7 +17,7 @@ class CreateBoardsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('project_id')->nullable();
             $table->string('name');
-            $table->boolean('master_board')->default(false);
+            $table->boolean('is_master_board')->default(false);
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects');

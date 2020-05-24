@@ -1,5 +1,7 @@
 type BoardColumn {
     id: ID!
     name: String!
+    is_primary: Boolean!
+    order: Int!
     cards: [Card!] @hasMany(type: "paginator", relation: "cards", defaultCount: 50, maxCount: 100)
 }

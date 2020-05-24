@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Card;
 use App\Models\Project;
 use App\Models\User;
+use App\Observers\CardObserver;
 use App\Observers\ProjectObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
@@ -29,5 +31,6 @@ class ModelsObserverProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
         Project::observe(ProjectObserver::class);
+        Card::observe(CardObserver::class);
     }
 }

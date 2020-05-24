@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Project;
 use App\Services\Actions\BoardActions;
 use App\Services\Actions\BoardColumnActions;
+use App\Services\Actions\CardTaskTypeActions;
 use Illuminate\Support\Str;
 
 class ProjectObserver
@@ -21,6 +22,9 @@ class ProjectObserver
 
         $boardColumnsAction = new BoardColumnActions();
         $boardColumnsAction->createDefaultColumns($board);
+
+        $cardTaskTypesAction = new CardTaskTypeActions();
+        $cardTaskTypesAction->createDefaultTaskTypes($board);
     }
 
     public function updating(Project $project)

@@ -1,0 +1,6 @@
+type CardTaskType {
+    id: ID!
+    name: String!
+    description: String
+    cards: [Card!] @hasMany(type: "paginator", relation: "cards", defaultCount: 15, maxCount: 50)
+}

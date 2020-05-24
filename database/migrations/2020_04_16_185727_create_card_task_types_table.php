@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBoardColumnsTable extends Migration
+class CreateCardTaskTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateBoardColumnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('board_columns', function (Blueprint $table) {
+        Schema::create('card_task_types', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('board_id');
-            $table->string('name');
-            $table->boolean('is_primary')->default(false);
-            $table->unsignedInteger('order');
+            $table->unsignedInteger('board_id');
+            $table->string('name', 25);
+            $table->string('description', 150);
             $table->timestamps();
 
             $table->foreign('board_id')->references('id')->on('boards');
@@ -32,6 +31,6 @@ class CreateBoardColumnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('board_columns');
+        Schema::dropIfExists('card_task_types');
     }
 }

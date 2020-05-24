@@ -3,32 +3,30 @@ type User {
     name: String!
     email: Email!
     avatar: String
-    role: UserRole!
+    role: UserRoleEnum!
     cards: [Card!] @hasMany(type: "paginator", relation: "cards", defaultCount: 15, maxCount: 50)
     teams: [Team!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     projects: [Project!] @belongsToMany(type: "paginator", defaultCount: 10, maxCount: 15)
     setting: UserSetting @hasOne
     attendanceScheme: AttendanceScheme @belongsTo
     attendance: [AttendanceLog] @hasMany(type: "paginator", relation: "attendanceLogs", defaultCount: 30, maxCount: 360)
-    status: UserStatus!
+    status: UserStatusEnum!
     created_at: DateTime!
     updated_at: DateTime!
 }
 
-enum UserRole {
+enum UserRoleEnum {
     ADMINISTRATOR @enum(value: 1)
     MANAGER @enum(value: 2)
     DEVELOPER @enum(value: 3)
 }
 
-enum UserStatus {
+enum UserStatusEnum {
     INACTIVE @enum(value: 0)
     ACTIVE @enum(value: 1)
 }
 
 enum UserOrderByEnum {
-    # Another reason why you might want to have a custom enum is to
-    # correct typos or bad naming in column names.
     NAME @enum(value: "name")
     ROLE @enum(value: "role")
 }
@@ -39,5 +37,5 @@ input CreateUserInput {
     name: String!
     email: Email!
     avatar: String
-    role: UserRole!
+    role: UserRoleEnum!
 }

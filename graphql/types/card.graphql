@@ -2,14 +2,24 @@ type Card {
     id: ID!
     title: String!
     description: String
-    user: User! @belongsTo
+    type: CardTypeEnum!
+    task_type: CardTaskType @hasOne(relation: "taskType")
+    owner: User! @belongsTo
     board: Board @belongsTo
     column: BoardColumn @belongsTo
+}
+
+enum CardTypeEnum {
+    TASK @enum(value: 1)
+    EPIC @enum(value: 2)
+    STORY @enum(value: 3)
 }
 
 input CreateCardInput {
     title: String!
     description: String!
+    type: CardTypeEnum!
+    task_type_id: ID
     board_id: ID!
     board_column_id: ID!
 }

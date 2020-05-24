@@ -15,16 +15,19 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('owner_id');
             $table->unsignedBigInteger('board_id');
             $table->unsignedBigInteger('board_column_id');
+            $table->unsignedInteger('task_type_id')->nullable();
+            $table->string('title', 150);
+            $table->string('description', 10000)->nullable();
+            $table->unsignedInteger('type'); // 1: task, 2: epic, 3: story
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('owner_id')->references('id')->on('users');
             $table->foreign('board_id')->references('id')->on('boards');
             $table->foreign('board_column_id')->references('id')->on('board_columns');
+            $table->foreign('task_type_id')->references('id')->on('card_task_types');
         });
     }
 

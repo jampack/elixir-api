@@ -12,7 +12,7 @@ class BoardActions
         $board = new Board();
 
         $board->name = "Master Board";
-        $board->master_board = true;
+        $board->is_master_board = true;
 
         $project->boards()->save($board);
 
