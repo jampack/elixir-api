@@ -15,11 +15,11 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('owner_id');
+            $table->unsignedBigInteger('status_id');
             $table->string('name', 50);
             $table->string('description', 500)->nullable();
             $table->string('slug')->unique('projects_slug_index');
-            $table->unsignedBigInteger('owner_id');
-            $table->unsignedBigInteger('status_id');
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users');

@@ -40,6 +40,10 @@ class Board extends Model
         return $this->hasMany(Card::class, 'board_id', 'id');
     }
 
+    public function cardTaskType() : HasMany {
+        return $this->hasMany(CardTaskType::class, 'board_id', 'id');
+    }
+
     /**
      * Accessors
      */
@@ -52,6 +56,6 @@ class Board extends Model
      * Scopes
      */
     public function scopeMasterBoard($query) {
-        return $query->where('master_board', true);
+        return $query->where('is_master_board', true);
     }
 }

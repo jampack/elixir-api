@@ -9,9 +9,9 @@ class BoardColumnActions
     public function createDefaultColumns(Board $board)
     {
         $columns = [
-            ["name" => "To Do"],
-            ["name" => "In Progress"],
-            ["name" => "Done"],
+            ["name" => "To Do", "is_primary" => true, 'order' => 1],
+            ["name" => "In Progress", 'order' => 2],
+            ["name" => "Done", 'order' => 3],
         ];
 
         $board->columns()->createMany($columns);

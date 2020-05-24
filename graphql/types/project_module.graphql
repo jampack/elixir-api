@@ -1,4 +1,4 @@
-type ProjectModule{
+type ProjectModule {
     id: ID!
     name: String!
     project: Project! @belongsTo
@@ -7,7 +7,7 @@ type ProjectModule{
     updated_at: DateTime!
 }
 
-input CreateProjectModuleInput{
+input CreateProjectModuleInput {
     project_id: ID!
     name: String!
     description: String

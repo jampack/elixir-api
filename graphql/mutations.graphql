@@ -45,7 +45,7 @@ extend type Mutation @middleware(checks: ["auth:api"]) {
 extend type Mutation @middleware(checks: ["auth:api"]) {
     createCard(data: CreateCardInput @spread): Card
     @create(model: "App\\Models\\Card")
-    @inject(context: "user.id", name: "user_id")
+    @inject(context: "user.id", name: "owner_id")
     @createCardValidation
 }
 
